@@ -28,8 +28,45 @@ const Body = ({ body, width }) => {
         >
           {data.mail.from.name.charAt(0)}
         </span>
-
-        <h1 style={{ margin: '10px' }}>{data.mail.short_description}</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <h1 style={{ margin: '10px' }}>{data.mail.short_description}</h1>
+          <a
+            style={{
+              display: 'flex',
+              borderRadius: '10px',
+              width: '20%',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 'auto',
+              background: '#e54065',
+              color: '#fff',
+              fontSize: '14px',
+              height: '40%',
+              cursor: 'pointer',
+            }}
+            href
+            onClick={() => {
+              // add favorite to local storage
+              const favorites = JSON.parse(localStorage.getItem('favorites'))
+              if (!favorites) {
+                localStorage.setItem(
+                  'favorites',
+                  JSON.stringify({ [data.mail.id]: true })
+                )
+              } else {
+                localStorage.setItem(
+                  'favorites',
+                  JSON.stringify({
+                    ...favorites,
+                    [data.mail.id]: true,
+                  })
+                )
+              }
+            }}
+          >
+            Mark as favorite
+          </a>
+        </div>
       </div>
       <div
         className="email-body"
