@@ -19,19 +19,22 @@ const Body = ({ body, width }) => {
       <div style={{ display: 'flex' }}>
         <span
           style={{
-            margin: 'auto',
+            margin: 'auto 30px',
             background: '#e54065',
             color: '#fff',
             padding: '15px 20px',
-            borderRadius: '100%',
+            borderRadius: '50%',
           }}
         >
           {data.mail.from.name.charAt(0)}
         </span>
 
-        <h1 style={{ margin: '10px auto' }}>{data.mail.short_description}</h1>
+        <h1 style={{ margin: '10px' }}>{data.mail.short_description}</h1>
       </div>
-      <div className='email-body' dangerouslySetInnerHTML={{ __html: render }} />
+      <div
+        className="email-body"
+        dangerouslySetInnerHTML={{ __html: render }}
+      />
     </div>
   )
 }

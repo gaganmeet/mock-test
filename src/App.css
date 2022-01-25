@@ -8,5 +8,10 @@
     flex-direction: column;
     height: 100vh;
     gap: 2rem;
+    font-size: 20px;
     margin-top: 5rem;
+}
+
+body{
+    font-size: 16px;
 }

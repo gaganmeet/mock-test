@@ -7,7 +7,6 @@ import './App.css'
 const App = () => {
   const { data } = useGetMailsQuery()
   const mail = useSelector((state) => state.mail)
-
   return (
     <div
       style={{
