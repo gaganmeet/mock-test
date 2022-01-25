@@ -7,11 +7,11 @@ const Card = ({ props }) => {
   const [getBody, { data }] = useLazyGetBodyQuery()
   const [read, setRead] = React.useState()
   React.useEffect(() => {
-    console.log('here')
+    
     const read = JSON.parse(localStorage.getItem('read'))
     read ? setRead(read[props.id]) : setRead(false)
   }, [props.id, localStorage.getItem('read')])
-  console.log(read)
+  
 
   const dispatch = useDispatch()
   React.useEffect(() => {

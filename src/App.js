@@ -39,8 +39,15 @@ const App = () => {
             return <Card key={item.id} props={item} />
           }
         })
-        console.log(cardData)
-
+        
+        break
+      case 'unread':
+        cardData = data.list.map((item) => {
+          const read = JSON.parse(localStorage.getItem('read'))
+          if (!read[item.id]) {
+            return <Card key={item.id} props={item} />
+          }
+        })
         break
       default:
         cardData = data.list.map((item) => {
@@ -65,6 +72,14 @@ const App = () => {
           onClick={() => setFilter((prev) => (prev === 'read' ? '' : 'read'))}
         >
           Read
+        </button>
+        <button
+          style={buttonStyle}
+          onClick={() =>
+            setFilter((prev) => (prev === 'unread' ? '' : 'unread'))
+          }
+        >
+          Unread
         </button>
       </div>
       <div
